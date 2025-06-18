@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Feliz 1 ano e 10 meses meu amooor !</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #ffe0ec, #ffeef7);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #333;
+        }
+
+        header {
+            padding: 30px 20px 10px;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #d63384;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .message {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff0f6;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .gallery img {
+            max-width: 150px;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            object-fit: cover;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fff0f6;
+            color: #d63384;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0; left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .lightbox:target {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Feliz 1 ano e 10 meses de Namoro!</h1>
+        <p>Celebrando nosso amor e todos os momentos incríveis juntos 💖</p>
+    </header>
+
+    <section class="message">
+        <p>Gabriela Viana, nesses quase 2 anos ao seu lado, vivi os momentos mais felizes da minha vida. Cada sorriso seu ilumina meu dia, e cada abraço seu é o meu lugar favorito no mundo. Obrigado por ser minha parceira, minha amiga e meu amor.
+        Que venham muitos e muitos meses e anos juntos!
+        Conte sempre sempre comigo no que der e vier.
+        </p>
+    </section>
+
+    <section>
+        <h2>Algumas das Nossas Memórias</h2>
+        <div class="gallery" id="photoGallery"></div>
+    </section>
+
+    <footer>
+        <p>Ao infinito e Além minha princesa 💕</p>
+    </footer>
+
+    <!-- Lightbox container -->
+    <div id="lightbox" class="lightbox" onclick="this.style.display='none'">
+        <img id="lightbox-img" src="" alt="Foto ampliada">
+    </div>
+
+    <script>
+        const fotos = ['01.png', '02.png', '03.png'];
+        const gallery = document.getElementById('photoGallery');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        fotos.forEach(src => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = "Foto do casal";
+            img.onclick = () => {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = src;
+            };
+            gallery.appendChild(img);
+        });
+    </script>
+</body>
+</html>
